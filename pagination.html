@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+</head>
+<div id="data-container"></div>
+<div id="pagination-container"></div>
+<body>
+<div id="example"></div>
+<script src="js/lib/jquery/jquery-3.2.1.js"></script>
+<script src="js/lib/bootstrap/bootstrap.js"></script>
+<script src="js/lib/bootstrap-3-typeahead/Bootstrap-3-Typeahead.js"></script>
+<script src="js/lib/jquery-pagination/jquert.pagination.js"></script>
+
+<script type='text/javascript'>
+    $('#pagination-container').pagination({
+        dataSource: [1, 2, 3, 4, 5, 6, 7],
+        pageSize: 5,
+        showPrevious: false,
+        showNext: false,
+        callback: function(data, pagination) {
+            var html = simpleTemplating(data);
+            $('#data-container').html(html);
+        }
+
+    })
+    function simpleTemplating(data) {
+        var html = '<ul>';
+        $.each(data, function(index, item){
+            html += '<li>'+ item +'</li>';
+        });
+        html += '</ul>';
+        return html;
+    }
+</script>
+</body>
+</html>
