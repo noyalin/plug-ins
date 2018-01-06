@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .brand{
+            overflow: hidden;
+            background:#fbfbfd ;
+        }
+        .ch-wrap{
+            position: relative;
+            float: left;
+            margin-right: 1px;
+
+        }
+        .icheckbox_h{
+            padding: 10px;
+            background: #fff;
+        }
+        .ch-wrap .checked{
+            position: relative;
+            border: 1px solid #e67d23;
+        }
+
+        .ch-wrap .checked:after{
+            content: "\2716";
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            width: 11px;
+            height: 11px;
+            background: #e67d23;
+            vertical-align: middle;
+            color: #fff;
+            font-size: 11px;
+            line-height: 11px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="brand">
+    <div class="ch-wrap">
+        <input type="checkbox">
+        <label>nike</label>
+    </div>
+
+    <div class="ch-wrap">
+        <input type="checkbox">
+        <label>nike</label>
+    </div>
+
+    <div class="ch-wrap">
+        <input type="checkbox">
+        <label>nike9</label>
+    </div>
+    <div class="ch-wrap">
+        <input type="checkbox">
+        <label>nike</label>
+    </div>
+    <div class="ch-wrap">
+        <input type="checkbox">
+        <label>nike8</label>
+    </div>
+
+    <div class="ch-wrap">
+        <input type="checkbox">
+        <label>nike</label>
+    </div>
+    <div class="ch-wrap">
+        <input type="checkbox">
+        <label>nike</label>
+    </div>
+    <div class="ch-wrap">
+        <input type="checkbox">
+        <label>nike</label>
+    </div>
+</div>
+
+<script src="js/lib/jquery/jquery-3.2.1.js"></script>
+<script src="icheck/icheck-1.x/icheck.js"></script>
+<script>
+    $(document).ready(function () {
+        $('input').each(function () {
+            var self = $(this),
+                label = self.next(),
+                label_text = label.text();
+
+            label.remove();
+            self.iCheck({
+                checkboxClass: 'icheckbox_h',
+                insert: '<div class="icheck_line-icon"></div>' + label_text
+            });
+        });
+    });
+</script>
+</body>
+</html>
